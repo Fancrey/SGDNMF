@@ -5,7 +5,7 @@ function [Z ,C, A, outputs]= SGDNMF(X,layers,label,options)
 % $min ||X- Z_1 Z_2...Z_L(C A_L)^T||_F^2+\sum_{i=1}{L}\alpha_i Tr((C A_i^T)^T L_i^H C A_i+ Z_i^T L_i^Z Z_i)$
 % s.t. Z_i^TZ_i=I,A_i^TA_i=I A_i >=0
 %%%%%%%%%%%%%%%%%%%%%%%
-%           X : m*n Data Matrix
+%           X : m*n Data Matrix m:number of features n: number of samples
 %      layers : Dimensions of each layer example: [1024,512,256]
 %       label : a n*1 vector, The data points of known label is labeled as class_number, and the unknown is 0
 %     options : options.labelRatio : Known data ratio
@@ -14,6 +14,21 @@ function [Z ,C, A, outputs]= SGDNMF(X,layers,label,options)
 %               options.beta    : orth parameter
 %               options.WeightMode : 'Binary'    'HeatKernel'   'Cosine'
 %               options.verbose : 0-1
+%               options.C       : optional, the label matrix of the data. n*(n-l+c) matrix  l:number of known label data c:total number of classes
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+% %%%%%%%%  NOTE !!!!!!!!!%%%%%%%%%%%%
+% Since the data needs to be randomly scrambled to generate label matrix C, 
+% the order of labels will change. Please use outputs.X as the complete data after training, 
+% and use output.gnd as the label after training.
+% %%%%%% IMPORTANT !!!!!!!!!!!%%%%%%%%%%
+
+
+
+
+
+
+
 %   The code is created by Haonan Wu 
 %   2021.12.09
 %   e-mail:fancrey@gmail.com
