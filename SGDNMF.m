@@ -20,7 +20,7 @@ function [Z ,C, A, outputs]= SGDNMF(X,layers,label,options)
 % %%%%%%%%  NOTE !!!!!!!!!%%%%%%%%%%%%
 % Since the data needs to be randomly scrambled to generate label matrix C, 
 % the order of labels will change. Please use outputs.X as the complete data after training, 
-% and use output.gnd as the label after training.
+% and use outputs.gnd as the label after training.
 % %%%%%% IMPORTANT !!!!!!!!!!!%%%%%%%%%%
 
 
